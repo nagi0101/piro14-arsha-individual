@@ -278,6 +278,7 @@ a {
   padding: 0 15px;
   position: absolute;
   transition: 0.5s;
+  transform-style: top left;
 }
 
 @media (min-width: 768px) {
@@ -495,7 +496,7 @@ a {
   padding: 30px;
   border-radius: 5px;
   background: #fff;
-  transition: 0.5s;
+  transition: 1s;
   display: flex;
   align-items: flex-start;
 }
