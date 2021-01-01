@@ -27,24 +27,21 @@ function checkThreeLines() {
   }
 }
 
-function setThreeLinesPosition() {
-  console.log("three line positioning");
-  let heightOfItem = [];
-  setHeightArray(heightOfItem);
-  let itemWidth = itemsArr[0].offsetWidth;
-  itemsArr.forEach(function setPosition(item, index, arr) {
+function setThreeLinesPosition(heightOfItem, itemWidth) {
+  console.log("three line positioning", new Date().getTime());
+  itemsArr.forEach(function setPosition(item, index) {
     if (checkThreeLines() == 1) {
       item.style.top = `${heightFirstLine}px`;
       item.style.left = `0px`;
-      heightFirstLine += heightOfItem[index] + 10;
+      heightFirstLine += heightOfItem[index] + 20;
     } else if (checkThreeLines() == 2) {
       item.style.top = `${heightSecondLine}px`;
       item.style.left = `${itemWidth + 1}px`;
-      heightSecondLine += heightOfItem[index] + 10;
+      heightSecondLine += heightOfItem[index] + 20;
     } else {
       item.style.top = `${heightThirdLine}px`;
       item.style.left = `${itemWidth * 2 + 2}px`;
-      heightThirdLine += heightOfItem[index] + 10;
+      heightThirdLine += heightOfItem[index] + 20;
     }
   });
   heightFirstLine = 0;
@@ -60,20 +57,18 @@ function checkTwoLines() {
   }
 }
 
-function setTwoLinesPosition() {
-  console.log("two line positioning");
-  let heightOfItem = [];
-  setHeightArray(heightOfItem);
-  let itemWidth = itemsArr[0].offsetWidth;
-  itemsArr.forEach(function setPosition(item, index, arr) {
+function setTwoLinesPosition(heightOfItem, itemWidth) {
+  itemsArr.forEach(function setPosition(item, index) {
     if (checkTwoLines() == 1) {
+      console.log(`${index}th positioning`, new Date().getTime());
       item.style.top = `${heightFirstLine}px`;
       item.style.left = `0px`;
-      heightFirstLine += heightOfItem[index] + 10;
+      heightFirstLine += heightOfItem[index] + 20;
     } else {
+      console.log(`${index}th positioning`, new Date().getTime());
       item.style.top = `${heightSecondLine}px`;
       item.style.left = `${itemWidth + 1}px`;
-      heightSecondLine += heightOfItem[index] * 1.1;
+      heightSecondLine += heightOfItem[index] + 20;
     }
   });
   heightFirstLine = 0;
@@ -82,12 +77,15 @@ function setTwoLinesPosition() {
 }
 
 function setItemsPosition() {
-  console.log("start positioning");
+  let heightOfItem = [];
+  setHeightArray(heightOfItem);
   windowWidth = window.innerWidth;
   if (windowWidth < 992) {
-    setTwoLinesPosition();
+    let itemWidth = itemsArr[0].offsetWidth;
+    setTwoLinesPosition(heightOfItem, itemWidth);
   } else {
-    setThreeLinesPosition();
+    let itemWidth = itemsArr[0].offsetWidth;
+    setThreeLinesPosition(heightOfItem, itemWidth);
   }
 }
 

@@ -1,6 +1,9 @@
 @import "reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Open+Sans&family=Poppins:wght@500&display=swap");
 
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 *,
 ::after,
 ::before {
@@ -125,22 +128,31 @@ a {
   border: 2px solid #47b2e4;
 }
 
-@media (max-width: 1024px) {
-  .call-to-action {
-    background-attachment: scroll;
+@media (max-width: 992px) {
+  .call-to-action .cta_container .cta_text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-}
-
-@media (min-width: 769px) {
   .call-to-action .cta_container .cta_btn-section {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
   }
   .call-to-action .cta_btn-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+}
+
+@media (max-width: 992px) {
+  .call-to-action .cta_container .cta_row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -255,9 +267,7 @@ a {
   font-family: "Open Sans", sans-serif;
   position: relative;
   height: 1080.36px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+
   margin: 0 -15px;
   font-family: "Open Sans", sans-serif;
 }
@@ -384,9 +394,20 @@ a {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 992px) {
   .team .team_container {
     max-width: 720px;
+  }
+
+  .team .team_container .team_row {
+    display: flex;
+    align-items: center;
+  }
+
+  .team .team_container .team_row .team_card {
+    min-width: 720px;
+    margin-top: 20px;
+    padding: 30px;
   }
 }
 
